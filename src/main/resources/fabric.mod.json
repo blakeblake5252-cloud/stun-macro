@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "axe-double-stun",
+  "version": "${version}",
+  "name": "Axe Double Stun",
+  "description": "When you hit a blocking shield with an axe, fires a quick follow-up hit to double-stun it.",
+  "authors": ["you"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/axe-double-stun/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.axedoublestun.AxeDoubleStunClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "fabric-api": "*",
+    "minecraft": "~1.21.4",
+    "java": ">=21"
+  }
+}
