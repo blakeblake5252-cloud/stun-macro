@@ -1,10 +1,12 @@
 // Service worker: lets the arcade keep working with no connection.
 // Strategy: try the network first (so updates show up), fall back to the cache.
-const CACHE = 'recess-v1';
+const CACHE = 'recess-v2';
 const ASSETS = [
   './',
   'index.html',
   'icon.svg',
+  'icon-192.png',
+  'icon-512.png',
   'manifest.webmanifest',
   'css/style.css',
   'js/main.js',
