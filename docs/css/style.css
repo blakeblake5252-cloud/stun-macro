@@ -1,0 +1,312 @@
+/* Recess — one stylesheet, no frameworks. Colours are tokens so the whole
+   look can be changed from this first block. */
+:root {
+  --bg: #0e1124;
+  --panel: #171b36;
+  --panel-2: #1f2447;
+  --line: #2c3263;
+  --text: #f3efe6;
+  --muted: #a5abcd;
+  --accent: #fbbf24;
+  --radius: 18px;
+  --font: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1rem/1.5 var(--font);
+}
+
+h1, h2, p, dl, dd { margin: 0; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- header / footer ---------- */
+.top, #app, .foot {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.brand-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: #ff6b5e;
+  box-shadow: 8px 6px 0 -2px #fbbf24, -2px 10px 0 -4px #5eead4;
+}
+
+#app { flex: 1; padding-bottom: 40px; }
+
+.foot {
+  padding-block: 20px 28px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--line);
+}
+
+.notice { padding: 24px 0; }
+
+/* ---------- buttons ---------- */
+button { font: inherit; color: inherit; cursor: pointer; }
+
+.ghost {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.ghost:hover { color: var(--text); border-color: var(--muted); }
+
+.primary {
+  min-width: 160px;
+  padding: 13px 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #14172e;
+  font-size: 1.05rem;
+  font-weight: 800;
+  transition: transform 120ms ease;
+}
+.primary:hover:not(:disabled) { transform: translateY(-2px); }
+.primary:active:not(:disabled) { transform: translateY(1px); }
+.primary:disabled { opacity: 0.55; cursor: default; }
+
+/* ---------- hub ---------- */
+.hero { padding-block: 28px 30px; }
+
+.hero h1 {
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.hero p {
+  margin-top: 14px;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 1.075rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+.card:hover, .card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.card-art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  background: #0b0e1f;
+  border-bottom: 1px solid var(--line);
+}
+.card-art svg { width: 100%; height: 100%; }
+
+.card-body { padding: 16px 18px 18px; }
+
+.card h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.card p { color: var(--muted); }
+
+.card .card-best {
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- play view ---------- */
+.play-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 4px 16px;
+  padding-block: 8px 16px;
+}
+
+.back {
+  grid-column: 1 / -1;
+  justify-self: start;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.back:hover { color: var(--text); }
+
+.play-head h1 {
+  font-size: clamp(1.7rem, 6vw, 2.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.hud { display: flex; gap: 22px; text-align: right; }
+.hud dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hud dd {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.hud div:first-child dd { color: var(--accent); }
+
+.stage {
+  position: relative;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #0b0e1f;
+}
+
+.game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none; /* the game handles touches itself; don't scroll the page */
+  user-select: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  text-align: center;
+  background: rgb(11 14 31 / 0.82);
+}
+.overlay h2 {
+  font-size: clamp(1.6rem, 6vw, 2.6rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+.overlay p { color: var(--muted); }
+.overlay .primary { margin-top: 14px; }
+
+.controls {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Echo Grid ---------- */
+.echo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5%;
+  padding: 3%;
+}
+
+.echo-status {
+  color: var(--muted);
+  font-size: clamp(0.8rem, 2.6vw, 1rem);
+  font-weight: 700;
+}
+
+.echo-grid {
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
+}
+
+.echo-cell {
+  border: 0;
+  border-radius: 18%;
+  background: #262c58;
+  transition: background-color 90ms ease, transform 90ms ease;
+}
+.echo-cell:disabled { cursor: default; }
+.echo-cell:not(:disabled):hover { background: #333a70; }
+.echo-cell.lit {
+  background: var(--accent);
+  transform: scale(1.06);
+}
+.echo-cell.wrong { background: #ff6b5e; }
+
+/* ---------- small screens & motion ---------- */
+@media (max-width: 520px) {
+  .hud { gap: 16px; }
+  .hud dd { font-size: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .primary, .echo-cell { transition: none; }
+}

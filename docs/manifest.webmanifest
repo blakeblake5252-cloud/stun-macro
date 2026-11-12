@@ -1,0 +1,13 @@
+{
+  "name": "Recess — a tiny arcade",
+  "short_name": "Recess",
+  "description": "Three small original browser games.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0e1124",
+  "theme_color": "#0e1124",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

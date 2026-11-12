@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Security: only load code, styles and images from this site. No inline scripts, no third parties. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Recess — a tiny arcade</title>
+  <meta name="description" content="Three small original browser games built with plain HTML, CSS and JavaScript.">
+  <meta name="theme-color" content="#0e1124">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#/"><span class="brand-dot" aria-hidden="true"></span>Recess</a>
+    <button id="mute" class="ghost" type="button" aria-pressed="false">Sound on</button>
+  </header>
+
+  <main id="app">
+    <noscript><p class="notice">Recess needs JavaScript turned on to run its games.</p></noscript>
+  </main>
+
+  <footer class="foot">
+    <p>Original games, written in plain HTML, CSS and JavaScript. No ads, no trackers, no third-party requests.</p>
+  </footer>
+</body>
+</html>

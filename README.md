@@ -40,3 +40,11 @@ public PvP servers (Hypixel, etc.) classify as a macro / "no-delay" client
 and will ban for. It's meant for singleplayer, LAN, or private servers where
 you have permission to use it — check the rules of any server before running
 this there.
+
+---
+
+## Also in this repository: Recess (web arcade)
+
+The `docs/` folder holds a separate project: a small static website with three
+original browser games, built for a coding class. See
+[`docs/README.md`](docs/README.md) for how to run and publish it.
