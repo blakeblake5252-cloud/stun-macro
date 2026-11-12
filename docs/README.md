@@ -21,14 +21,16 @@ Then open <http://localhost:8000>. (Opening `index.html` straight from the
 file system will not work, because browsers only load JavaScript modules over
 http/https.)
 
-## Publishing it with GitHub Pages
+## Publishing it
 
-1. Merge this folder into the repository's default branch.
-2. On GitHub: **Settings → Pages → Build and deployment → Deploy from a
-   branch**, pick the branch, and choose the **/docs** folder.
-3. The site appears at `https://<username>.github.io/<repository>/`.
+The site is plain static files, so any static web host works: upload the
+contents of this folder (the folder with `index.html` in it) and you are done.
+All paths are relative, so it runs from a domain root or from a sub-folder.
 
-All paths in the site are relative, so it works from that sub-path.
+One quick option is Netlify: sign in at <https://app.netlify.com/drop>, drag
+the folder (or a zip of it) onto the page, and it gives the site its own
+`something.netlify.app` address. The name can be changed afterwards under
+**Domain management**.
 
 ## The technology, and where to find it
 
@@ -53,7 +55,8 @@ All paths in the site are relative, so it works from that sub-path.
   setting, in the browser's own `localStorage`.
 - The DOM is built with `createElement`/`textContent`, not by pasting strings
   into `innerHTML` (the one exception is the games' own hard-coded SVG artwork).
-- Serve it over **HTTPS** (GitHub Pages does this automatically).
+- Serve it over **HTTPS** (static hosts such as Netlify do this automatically).
+  The service worker and app install only work over HTTPS.
 
 ## Adding a game
 
